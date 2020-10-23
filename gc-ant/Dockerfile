@@ -13,9 +13,15 @@ ENV ANT_HOME /usr/share/ant
 ENV http_proxy $HTTP_PROXY
 ENV https_proxy $HTTP_PROXY
 
-ARG SASS_VERSION='1.26.11'
-ARG SASS_BINARY="dart-sass-${SASS_VERSION}-linux-x64.tar.gz"
+
+
+#ARG SASS_VERSION='1.26.11'
+#ARG SASS_BINARY="dart-sass-${SASS_VERSION}-linux-x64.tar.gz"
 ARG SASS_PATH=/usr/local/dart-sass
+ARG SASS=sass-compile-sources.gz
+
+COPY resources/sass-compile-sources.gz /tmp/
+
 
 RUN yum update -y && \
     yum install -y \
@@ -27,8 +33,8 @@ RUN unzip /opt/ant.zip -d /opt/
 RUN wget https://repo1.maven.org/maven2/org/apache/ivy/ivy/2.4.0/ivy-2.4.0.jar  -O /opt/apache-ant-1.9.6/lib/ivy.jar
 
 RUN yum install -y git && \
-    wget "https://github.com/sass/dart-sass/releases/download/${SASS_VERSION}/${SASS_BINARY}" -O /tmp/"${SASS_BINARY}" && \
-    tar -C /usr/local -xzf /tmp/"${SASS_BINARY}"
+   #wget "https://github.com/sass/dart-sass/releases/download/${SASS_VERSION}/${SASS_BINARY}" -O /tmp/"${SASS_BINARY}" && \
+    tar -C /usr/local -xzf /tmp/"${SASS}"
 
 ENV PATH "$PATH:${SASS_PATH}"
 
