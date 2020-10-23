@@ -25,6 +25,7 @@ ENV TARGET_PATH=/target
 
 COPY templates/env.template templates/var.env.template templates/var.env.withoutSampleData.template templates/docker-compose-initdb.yml.template templates/docker-compose-oscm.yml.template templates/docker-compose-oscm-syslog.yml.template templates/docker-compose-proxy.yml.template resources/proxy.conf.template resources/index.html.template start.sh /opt/
 COPY resources/tenant-default.properties /opt/tenant-default.properties
+COPY resources/docker-compose /usr/local/bin/docker-compose
 RUN export http_proxy=$HTTP_PROXY && \
     export https_proxy=$HTTP_PROXY && \
     yum -y update && \
@@ -32,7 +33,7 @@ RUN export http_proxy=$HTTP_PROXY && \
            docker-client \
            dos2unix && \
     yum clean all && \
-    curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose && \
+    #curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose && \
     chmod +x /usr/local/bin/docker-compose && \
     chmod +x /opt/start.sh
 
