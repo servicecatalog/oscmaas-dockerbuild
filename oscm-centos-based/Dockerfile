@@ -6,7 +6,7 @@
  #*                                                                           *
  #*****************************************************************************
 
-FROM centos:7
+FROM estartifactory.intern.est.fujitsu.com:445/oscm-registry/oscm-centos:7
 
 RUN export http_proxy=$HTTP_PROXY && \
     export https_proxy=$HTTP_PROXY && \
