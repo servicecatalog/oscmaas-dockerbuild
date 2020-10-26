@@ -8,7 +8,7 @@
 
 FROM oscm-centos-based
 
-COPY resources/bcprov.jar /usr/lib/jvm/java-1.8.0-openjdk/jre/lib/ext/bcprov.jar
+COPY resources/bcprov.jar /usr/lib/jvm/java-1.8.0-openjdk/jre/lib/ext/
 RUN chmod +x /usr/lib/jvm/java-1.8.0-openjdk/jre/lib/ext/bcprov.jar
 
 RUN export http_proxy=$HTTP_PROXY && \
