@@ -8,9 +8,6 @@
 
 FROM oscm-centos-based
 
-COPY resources/bcprov.jar /usr/lib/jvm/java-1.8.0-openjdk/jre/lib/ext/
-RUN chmod +x /usr/lib/jvm/java-1.8.0-openjdk/jre/lib/ext/bcprov.jar
-
 RUN export http_proxy=$HTTP_PROXY && \
     export https_proxy=$HTTP_PROXY && \
     yum update -y && \
@@ -28,6 +25,8 @@ RUN export http_proxy=$HTTP_PROXY && \
     tar --strip-components=1 -C /opt/apache-tomee -zxf /tmp/apache-tomee.tar.gz && \
     rm /tmp/apache-tomee.tar.gz
     
+    
+COPY resources/bcprov.jar /usr/lib/jvm/java-1.8.0-openjdk/jre/lib/ext/    
 Run echo "security.provider.10=org.bouncycastle.jce.provider.BouncyCastleProvider" >> /usr/lib/jvm/java-1.8.0-openjdk/jre/lib/security/java.security
 
 COPY resources/logging.properties /opt/apache-tomee/conf/logging.properties
