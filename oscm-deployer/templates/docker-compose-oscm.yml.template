@@ -59,7 +59,7 @@ services:
       - 8800:8000
 
   oscm-birt:
-    image: ${IMAGE_BIRT}
+    image: estartifactory.intern.est.fujitsu.com:445/artifactory/oscm-registry/oscm-birt:christian
     container_name: oscm-birt
     restart: always
     env_file: var.env
