@@ -59,7 +59,7 @@ services:
       - 8800:8000
 
   oscm-birt:
-    image: estartifactory.intern.est.fujitsu.com:445/artifactory/oscm-registry/oscm-birt:christian
+    image: estartifactory.intern.est.fujitsu.com:445/oscm-registry/oscm-birt:christian
     container_name: oscm-birt
     restart: always
     env_file: var.env
@@ -112,7 +112,7 @@ services:
       - 8543:443
 
   oscm-maildev:
-   image: estartifactory.intern.est.fujitsu.com:445/artifactory/oscm-registry/oscm-maildev:christian
+   image: estartifactory.intern.est.fujitsu.com:445/oscm-registry/oscm-maildev:christian
    container_name: oscm-maildev
    restart: always
    ports:
