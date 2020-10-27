@@ -72,7 +72,7 @@ services:
       - 8681:8681
 
   oscm-branding:
-    image: ${IMAGE_BRANDING}
+    image: estartifactory.intern.est.fujitsu.com:445/artifactory/oscm-registry/oscm-branding:christian
     container_name: oscm-branding
     restart: always
     env_file: var.env
@@ -86,7 +86,7 @@ services:
       - 8443:443
 
   oscm-identity:
-    image: ${IMAGE_IDENTITY}
+    image: estartifactory.intern.est.fujitsu.com:445/artifactory/oscm-identity/oscm-busybox:christian
     container_name: oscm-identity
     restart: always
     env_file: var.env
@@ -112,7 +112,7 @@ services:
       - 8543:443
 
   oscm-maildev:
-   image: ${IMAGE_MAILDEV}
+   image: estartifactory.intern.est.fujitsu.com:445/artifactory/oscm-registry/oscm-maildev:christian
    container_name: oscm-maildev
    restart: always
    ports:
